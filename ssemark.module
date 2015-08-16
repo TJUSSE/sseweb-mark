@@ -1,0 +1,23 @@
+<?php
+
+/**
+ * Implements hook_ckeditor_plugin().
+ * 
+ * @return type
+ */
+function ssemark_ckeditor_plugin() {
+  $plugins = array();
+  $plugins['mark'] = array(
+    // Plugin name.
+    'name' => 'mark',
+    // Plugin description - it will be displayed in the plugins management section of the profile settings.
+    'desc' => t('允许对内容添加荧光笔高亮'),
+    // The full path to the CKEditor plugin directory, trailing slash included.
+    'path' => drupal_get_path('module', 'ssemark') . '/plugins/mark/',
+    // Plugin buttons definition (optional).
+    'buttons' => array(
+      'mark' => array('label' => '高亮标记', 'icon' => 'icons/mark.png', 'command' => 'mark', 'toolbar' => 'basicstyles,50'),
+    )
+  );
+  return $plugins;
+}
